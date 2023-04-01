@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GreenLeaf</string>
+    <string name="cpf">CPF:</string>
+    <string name="label_points_value">teste</string>
+</resources>
