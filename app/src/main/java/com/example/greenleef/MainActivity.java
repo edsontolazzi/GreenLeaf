@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         this.initComponents();
         this.setBasicData();
         this.listenerEvents();
-//        this.cpf.setText("01864500018");
     }
 
     /**

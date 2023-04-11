@@ -68,7 +68,7 @@ public class ApiManager {
         this.queue.add(stringRequest);
     }
 
-    public void createReport(String cpf, String userData) {
+    public void createReport(String cpf, String items, String nameReport, int lat, int lng, String imageBase64) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, this.endpoint + "report", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -95,10 +95,16 @@ public class ApiManager {
 
             public byte[] getBody() throws AuthFailureError {
                 JSONObject json = new JSONObject();
-//                    json.put("token", token);
-//                    json.put("token", token);
-//                    json.put("token", token);
-//                    json.put("token", token);
+                try {
+                    json.put("items", items);
+                    json.put("name", nameReport);
+                    json.put("latitude", lat);
+                    json.put("longitude", lng);
+                    json.put("image", imageBase64);
+                    json.put("cpf", cpf);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 return json.toString().getBytes(StandardCharsets.UTF_8);
             }
