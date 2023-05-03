@@ -21,8 +21,8 @@
 
     <ListView
         android:id="@+id/lv_greenleaf"
-        android:layout_width="395dp"
-        android:layout_height="372dp"
+        android:layout_width="402dp"
+        android:layout_height="440dp"
         android:layout_marginTop="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
