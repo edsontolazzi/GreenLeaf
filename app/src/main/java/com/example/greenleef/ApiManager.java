@@ -9,6 +9,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.nio.charset.StandardCharsets;
@@ -46,7 +48,37 @@ public class ApiManager {
                     JSONObject obj = jsonStringToObject(response);
                     activity.setPoints(obj.get("points").toString());
                 } catch (Throwable t) {
-                    Log.e("GreenLeef", "Could not parse malformed JSON: \"" + response + "\"");
+                    Log.e("GreenLeaf", "Could not parse malformed JSON: \"" + response + "\"");
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("error-api", error.toString());
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Accept","application/json");
+                params.put("Content-Type","application/json");
+
+                return params;
+            }
+        };
+
+        this.queue.add(stringRequest);
+    }
+
+    public void getReportsByCpf(ListActivity activity, String cpf) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, this.endpoint + "reports/" + cpf, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray json = new JSONArray(response);
+                    activity.setListView(json);
+                } catch (Throwable t) {
+                    Log.e("GreenLeaf", "Could not parse malformed JSON: \"" + response + "\"");
                 }
             }
         }, new Response.ErrorListener() {
