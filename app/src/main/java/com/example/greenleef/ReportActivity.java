@@ -36,7 +36,7 @@ public class ReportActivity extends AppCompatActivity implements LocationListene
     private int lng = 0;
     Context context = null;
     String userCpf = null;
-    int defaultColor = Color.parseColor("#04AD5C");
+    int defaultColor = Color.parseColor("#88a829");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

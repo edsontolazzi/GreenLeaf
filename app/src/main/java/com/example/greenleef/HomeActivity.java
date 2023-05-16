@@ -18,10 +18,11 @@ public class HomeActivity extends AppCompatActivity {
     Button btList = null;
     Button btReport = null;
     Button btPoints = null;
+    Button btAbout = null;
     TextView pointValue = null;
     Context context = null;
     String userCpf = null;
-    int defaultColor = Color.parseColor("#04AD5C");
+    int defaultColor = Color.parseColor("#88a829");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         this.btList = findViewById(R.id.bt_list);
         this.btReport = findViewById(R.id.bt_report);
         this.btPoints = findViewById(R.id.bt_points);
+        this.btAbout = findViewById(R.id.bt_about);
 
         // Functions
         this.getPoints();
@@ -68,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
      * Function to set basic data
      */
     protected void setBasicData() {
-        logo.setImageResource(R.drawable.logogreenleef);
+        logo.setImageResource(R.drawable.logo);
 
         Window window = getWindow();
         window.setStatusBarColor(this.defaultColor);
@@ -99,6 +101,13 @@ public class HomeActivity extends AppCompatActivity {
                 getPoints();
             }
         });
+
+        btAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAbout();
+            }
+        });
     }
 
     private void getPoints() {
@@ -112,6 +121,16 @@ public class HomeActivity extends AppCompatActivity {
 
     private void openList() {
         Intent intent = new Intent(this, ListActivity.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("cpf", this.userCpf);
+
+        intent.putExtras(bundle);
+        this.startActivity(intent);
+    }
+
+    private void openAbout() {
+        Intent intent = new Intent(this, AboutActivity.class);
 
         Bundle bundle = new Bundle();
         bundle.putString("cpf", this.userCpf);

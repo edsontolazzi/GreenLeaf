@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button btLogin = null;
     Context context = null;
     String userCpf = null;
-    int defaultColor = Color.parseColor("#04AD5C");
+    int defaultColor = Color.parseColor("#88a829");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
      * Function to set basic data
      */
     protected void setBasicData() {
-        logo.setImageResource(R.drawable.logogreenleef);
+        logo.setImageResource(R.drawable.logo);
 
         Window window = getWindow();
         window.setStatusBarColor(this.defaultColor);
