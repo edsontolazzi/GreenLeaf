@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/logogreenleef" />
+        tools:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/text_cpf"
