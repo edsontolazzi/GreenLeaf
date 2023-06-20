@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
      * Function to set basic data
      */
     protected void setBasicData() {
-        logo.setImageResource(R.drawable.logo);
+        logo.setImageResource(R.drawable.dog_logo);
 
         Window window = getWindow();
         window.setStatusBarColor(this.defaultColor);
