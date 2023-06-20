@@ -32,8 +32,8 @@ public class ReportActivity extends AppCompatActivity implements LocationListene
     Button btSend = null;
     EditText textName = null;
     String imageBase64 = "";
-    private int lat = 0;
-    private int lng = 0;
+    private double lat = 0;
+    private double lng = 0;
     Context context = null;
     String userCpf = null;
     int defaultColor = Color.parseColor("#88a829");
@@ -107,6 +107,9 @@ public class ReportActivity extends AppCompatActivity implements LocationListene
                     isValid = false;
                 }
 
+                System.out.println(lat);
+                System.out.println(lng);
+
                 if (isValid) {
                     // Create
                     ApiManager api = new ApiManager("http://187.16.236.89:7200/", context);
@@ -179,7 +182,7 @@ public class ReportActivity extends AppCompatActivity implements LocationListene
     public void onLocationChanged(Location location) {
         DataLocation dataLoc = new DataLocation(location.getLatitude(), location.getLongitude());
 
-        this.lat = (int) dataLoc.getLat();
-        this.lng = (int) dataLoc.getLng();
+        this.lat = dataLoc.getLat();
+        this.lng = dataLoc.getLng();
     }
 }

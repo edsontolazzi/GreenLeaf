@@ -100,7 +100,7 @@ public class ApiManager {
         this.queue.add(stringRequest);
     }
 
-    public void createReport(String cpf, String items, String nameReport, int lat, int lng, String imageBase64) {
+    public void createReport(String cpf, String items, String nameReport, double lat, double lng, String imageBase64) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, this.endpoint + "report", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
